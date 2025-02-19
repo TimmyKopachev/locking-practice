@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="initial-data" author="dzmitry.kapachou">
+        <sql>
+            insert into account(uuid, balance, version)
+            values ('534692af-a182-437d-9fc3-237b544bc5b1', 10000.0, 0);
+
+            insert into account(uuid, balance, version)
+            values ('534692af-a182-437d-9fc3-237b544bc5b2', 10000.0, 0);
+
+            insert into client(uuid, name, account_uuid, version)
+            values ('534692af-a182-437d-9fc3-237b544bddd1', 'marchi guesto', '534692af-a182-437d-9fc3-237b544bc5b1', 0);
+
+            insert into client(uuid, name, account_uuid, version)
+            values ('534692af-a182-437d-9fc3-237b544bccc2', 'santiago laguerro', '534692af-a182-437d-9fc3-237b544bc5b2', 0);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

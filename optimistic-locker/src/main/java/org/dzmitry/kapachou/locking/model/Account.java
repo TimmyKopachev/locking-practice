@@ -23,8 +23,11 @@ public class Account {
     private String uuid;
     @Column(scale = 15, precision = 30)
     private BigDecimal balance;
-    @OneToOne(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     private Client client;
+
+    @Version
+    private Long version;
 
     public void withdraw(BigDecimal money) {
         log.info("Client:<{}> withdraws money:<{}> from balance:<{}>.", getClient().getName(), money, balance);

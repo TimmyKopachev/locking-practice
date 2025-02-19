@@ -32,7 +32,8 @@ public class MoneyTransferService {
         }
 
         if (enableLongTimeProcessing) {
-            // simulate a long time processing to trigger a timeout exception for the second transaction
+            // simulate a long time processing to trigger a timeout exception
+            // for the second waiting transaction
             threadSleep(5000);
         }
 
@@ -44,7 +45,7 @@ public class MoneyTransferService {
         }
         accountRepository.saveAll(List.of(from, to))
                 .forEach(account ->
-                            log.debug("Client:<{}> account:<{}> with new balance:<{}> has been updated successfully.",
+                            log.info("Client:<{}> account:<{}> with new balance:<{}> has been updated successfully.",
                                 account.getClient().getName(),
                                 account.getUuid(),
                                 account.getBalance()));
