@@ -1,5 +1,6 @@
 package org.dzmitry.kapachou.locking.scenario;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.dzmitry.kapachou.locking.service.MoneyTransferService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
