@@ -4,11 +4,12 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-
-public class ApplicationRunner implements org.springframework.boot.ApplicationRunner
-{
+@EnableTransactionManagement
+public class ApplicationRunner {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
@@ -17,8 +18,4 @@ public class ApplicationRunner implements org.springframework.boot.ApplicationRu
                 .run(args);
     }
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
-
-    }
 }

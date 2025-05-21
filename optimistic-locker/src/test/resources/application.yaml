@@ -1,10 +1,24 @@
+logging:
+  level:
+    org.springframework.transaction: WARN
+    org.springframework.transaction.interceptor.TransactionInterceptor: TRACE
+    org.springframework.orm.jpa.JpaTransactionManager: DEBUG
+
+
 spring:
   #Liquibase
   liquibase:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db-changelog/changelog-dev.xml}
 
+
   #JPA
   datasource:
-    url: jdbc:h2:mem:account-storage-db-test;DB_CLOSE_DELAY=-1
-    username: admin
-    password:
+    url: jdbc:postgresql://localhost:5432/account-transfer-money-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        ddl-auto: none

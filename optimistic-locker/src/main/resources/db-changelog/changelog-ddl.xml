@@ -10,33 +10,13 @@
         <column name="uuid" type="VARCHAR(100)">
             <constraints nullable="false"/>
         </column>
+        <column name="owner" type="VARCHAR(15)"/>
         <column name="balance" type="NUMERIC(8,1)"/>
         <column name="version" type="BIGINT">
             <constraints nullable="false"/>
         </column>
     </createTable>
-
-
-    <createTable tableName="client">
-        <column name="uuid" type="VARCHAR(100)">
-            <constraints nullable="false"/>
-        </column>
-        <column name="name" type="VARCHAR(50)"/>
-        <column name="version" type="BIGINT">
-            <constraints nullable="false"/>
-        </column>
-        <column name="account_uuid" type="VARCHAR(100)"/>
-    </createTable>
-
-    <addPrimaryKey tableName="client" columnNames="uuid"/>
     <addPrimaryKey tableName="account" columnNames="uuid"/>
-
-    <addForeignKeyConstraint baseTableName="client"
-                             baseColumnNames="account_uuid"
-                             constraintName="fk_client_account_uuid"
-                             referencedTableName="account"
-                             referencedColumnNames="uuid"
-                             onDelete="CASCADE" onUpdate="NO ACTION"/>
 
 </changeSet>
 

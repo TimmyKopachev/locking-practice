@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  account-transfer-money-pgsql-server:
+    platform: linux/amd64
+    image: "postgres:15.4"
+    container_name: "account-transfer-money-pgsql"
+    environment:
+      POSTGRES_DB: "account-transfer-money-db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - pg-db-network
+
+networks:
+  pg-db-network:

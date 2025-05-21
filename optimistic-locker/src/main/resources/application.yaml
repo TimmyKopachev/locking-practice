@@ -8,23 +8,16 @@ spring:
     change-log: ${LIQUIBASE_CHANGE_LOG:classpath:db-changelog/changelog-dev.xml}
 
 
-  h2:
-    console:
-      enabled: true
-      path: /h2
-      settings:
-        trace: true
-        web-allow-others: true
-
   #JPA
   datasource:
-    url: jdbc:h2:mem:account-storage-db;DB_CLOSE_DELAY=-1
-    username: admin
-    password:
+    url: jdbc:postgresql://localhost:5432/account-transfer-money-db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: false
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
         format_sql: true
         ddl-auto: none
